@@ -5,6 +5,7 @@
 # IntelliJ project files
 .idea
 *.iml
+*.js
 out
 gen### Windows template
 # Windows thumbnail cache files
