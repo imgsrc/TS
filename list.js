@@ -15,7 +15,7 @@ var list = {
         this.items[index] = item;
     },
     forEach: function (fn) {
-        for (var i = void 0; i < this.items.length; i++) {
+        for (var i = 0; i < this.items.length; i++) {
             fn(this.items[i], i, this);
         }
     }

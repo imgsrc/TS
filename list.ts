@@ -32,7 +32,7 @@ const list: List = {
     },
 
     forEach(fn) {
-        for (let i; i < this.items.length; i++) {
+        for (let i = 0; i < this.items.length; i++) {
             fn(this.items[i], i, this);
         }
     }
