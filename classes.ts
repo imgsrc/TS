@@ -12,33 +12,24 @@ interface IList extends IEnumerable {
 }
 
 class List implements IList {
-    items = []
-,
+    items: any[] = [];
 
     add(item) {
         this.items.push(item);
         return this;
     }
 
-,
-
     remove(item) {
         this.items = this.items.filter(i => i !== item);
     }
-
-,
 
     get(index) {
         return this.items[index];
     }
 
-,
-
     set(index, item) {
         this.items[index] = item;
     }
-
-,
 
     forEach(fn) {
         for (let i = 0; i < this.items.length; i++) {
@@ -49,7 +40,6 @@ class List implements IList {
 
 const list = new List();
 
-/*
 list.add(1)
     .add(2)
     .add(3);
@@ -61,4 +51,4 @@ console.log(list.get(0));
 
 list.forEach((item, index) => {
     console.log(`${index}: ${item}`);
-});*/
+});
