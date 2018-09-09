@@ -3,8 +3,7 @@ interface IEnumerable {
 }
 
 interface IList extends IEnumerable {
-    items: any[];
-
+    size: number;
     add: (item: any) => List;
     remove: (item: any) => void;
     get: (index: any) => any;
@@ -12,7 +11,23 @@ interface IList extends IEnumerable {
 }
 
 class List implements IList {
-    items: any[] = [];
+    private items: any[];
+
+    constructor(...items: any[]) {
+        this.items = items;
+    }
+
+    static of(...items: any[]) {
+        return new List(...items);
+    }
+
+    get size() {
+        return this.items.length;
+    }
+
+    set size(value: number) {
+        this.items.length = value;
+    }
 
     add(item) {
         this.items.push(item);
@@ -38,7 +53,7 @@ class List implements IList {
     }
 }
 
-const list = new List();
+const list = List.of(1, 2, 3);
 
 list.add(1)
     .add(2)
@@ -48,6 +63,8 @@ list.remove(3);
 list.set(1, 42);
 
 console.log(list.get(0));
+
+console.log(list.size);
 
 list.forEach((item, index) => {
     console.log(`${index}: ${item}`);
